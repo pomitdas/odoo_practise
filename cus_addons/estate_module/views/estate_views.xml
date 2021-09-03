@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="demo_model_form_view" model="ir.ui.view">
+            <field name="name">estate.model.form.view</field>
+            <field name="model">estate.model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="title" />
+                                <field name="property_type" />
+                                <field name="postcode" />
+                            </group>
+                            <group>
+                                <field name="bedrooms" />
+                                <field name="living_area" />
+                            </group>
+
+                        </group>
+
+                        <notebook>
+                            <page string="OFFER">
+                                <gorup>
+                                    <field name="offer" />
+                                </gorup>
+
+
+                            </page>
+
+                            <page string="tab1"></page>
+
+
+                        </notebook>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_model_kanban_view" model="ir.ui.view">
+            <field name="name">estate.model.kanban.view</field>
+            <field name="model">estate.model</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="title" />
+                    <field name="property_type" />
+
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <field name="title" />
+
+                                <field name="property_type" />
+
+                            </div>
+                        </t>
+                    </templates>
+
+                </kanban>
+            </field>
+        </record>
+
+        <record id="demo_model_tree_view" model="ir.ui.view">
+            <field name="name">estate.model.tree.view</field>
+            <field name="model">estate.model</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title" />
+                    <field name="property_type" />
+                    <field name="postcode" />
+                    <field name="bedrooms" />
+                    <field name="living_area" />
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_demo_model" model="ir.actions.act_window">
+            <field name="name">estate Module</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estate.model</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id="estate_model_menu" name="estate Module" />
+        <menuitem id="estate_model_sub_menu1" parent="estate_model_menu" action="action_demo_model" name="Sub Menu1" />
+
+    </data>
+</odoo>
